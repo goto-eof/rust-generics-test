@@ -1,5 +1,8 @@
 use crate::users::{Administrator, Customer, User};
-use std::ops::Add;
+use std::{
+    ops::{Add, Div, Mul, Sub},
+    process::Output,
+};
 mod users;
 fn main() {
     let numbers = vec![1, 3, 5, 2, 4];
@@ -28,6 +31,18 @@ fn main() {
     let point2 = Point { x: 1.1, y: 2.3 };
     let point1 = Point { x: 3.1, y: 5.3 };
     println!("{:?}", point1 + point2);
+
+    let point2 = Point { x: 1.1, y: 2.3 };
+    let point1 = Point { x: 3.1, y: 5.3 };
+    println!("{:?}", point1 - point2);
+
+    let point2 = Point { x: 1.1, y: 2.3 };
+    let point1 = Point { x: 3.1, y: 5.3 };
+    println!("{:?}", point2 / point1);
+
+    let point2 = Point { x: 1.1, y: 2.3 };
+    let point1 = Point { x: 3.1, y: 5.3 };
+    println!("{:?}", point2 * point1);
 }
 
 fn do_job<T: User>(user: T) -> () {
@@ -77,6 +92,45 @@ impl<T: Add<Output = T>> Add for Point<T> {
         Self {
             x: self.x + rhs.x,
             y: self.y + rhs.y,
+        }
+    }
+}
+
+impl<T: Sub<Output = T>> Sub for Point<T> {
+    type Output = Self;
+
+    fn sub(self, rhs: Self) -> Self::Output {
+        Self {
+            x: self.x - rhs.x,
+            y: self.y - rhs.y,
+        }
+    }
+}
+
+impl<T> Div for Point<T>
+where
+    T: Div<Output = T>,
+{
+    type Output = Self;
+
+    fn div(self, rhs: Self) -> Self::Output {
+        Self {
+            x: self.x / rhs.x,
+            y: self.y / rhs.y,
+        }
+    }
+}
+
+impl<T> Mul for Point<T>
+where
+    T: Mul<Output = T>,
+{
+    type Output = Self;
+
+    fn mul(self, rhs: Self) -> Self::Output {
+        Self {
+            x: self.x * rhs.x,
+            y: self.y * rhs.y,
         }
     }
 }
