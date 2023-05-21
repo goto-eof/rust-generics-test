@@ -1,14 +1,11 @@
 use crate::{
-    comparators::calculate_largest,
-    operations_on_generics::{div, mul, sub, sum},
-    point::Point,
-    users::{do_job, Administrator, Customer, User},
+    core::comparators::calculate_largest,
+    core::operations_on_generics::{div, mul, sub, sum},
+    core::point::Point,
+    core::users::{do_job, Administrator, Customer, User},
 };
 
-mod comparators;
-mod operations_on_generics;
-mod point;
-mod users;
+mod core;
 
 fn main() {
     comparators_test();
