@@ -8,13 +8,13 @@ use crate::{
 mod core;
 
 fn main() {
-    comparators_test();
-    user_test();
-    operations_on_generics();
-    operations_on_points();
+    generic_function_comparators();
+    generic_function_operations();
+    generic_struct_user();
+    generic_struct_operations();
 }
 
-fn operations_on_points() {
+fn generic_struct_operations() {
     let point: Point<i32> = Point { x: 1, y: 2 };
     println!("{}", point.get_x());
     println!("{}", point.get_y());
@@ -40,7 +40,7 @@ fn operations_on_points() {
     println!("{:?}", point2 * point1);
 }
 
-fn operations_on_generics() {
+fn generic_function_operations() {
     println!("1+2 = {}", sum(1, 2));
     println!("1.1+2.2 = {}", sum(1.1, 2.2));
 
@@ -54,14 +54,14 @@ fn operations_on_generics() {
     println!("1.1-2.2 = {}", sub(1.1, 2.2));
 }
 
-fn user_test() {
+fn generic_struct_user() {
     let administrator = Administrator::new("admin");
     let customer = Customer::new("customer");
     do_job(administrator);
     do_job(customer);
 }
 
-fn comparators_test() {
+fn generic_function_comparators() {
     let numbers = vec![1, 3, 5, 2, 4];
     let characters = vec!['a', 'c', 'e', 'b', 'd'];
     println!("{:?}", calculate_largest::<i32>(&numbers));
