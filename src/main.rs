@@ -1,5 +1,5 @@
 use crate::users::{Administrator, Customer, User};
-use std::{iter::Sum, ops::Add, process::Output};
+use std::ops::Add;
 mod users;
 fn main() {
     let numbers = vec![1, 3, 5, 2, 4];
@@ -23,7 +23,11 @@ fn main() {
 
     let point2 = Point { x: 1, y: 2 };
     let point1 = Point { x: 3, y: 5 };
-    println!("{:?}", point1 + point2)
+    println!("{:?}", point1 + point2);
+
+    let point2 = Point { x: 1.1, y: 2.3 };
+    let point1 = Point { x: 3.1, y: 5.3 };
+    println!("{:?}", point1 + point2);
 }
 
 fn do_job<T: User>(user: T) -> () {
