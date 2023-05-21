@@ -40,3 +40,7 @@ impl User for Administrator {
         self.username.to_owned()
     }
 }
+pub fn do_job<T: User>(user: T) -> () {
+    println!("{:?}", user.get_username());
+    user.do_operation();
+}
