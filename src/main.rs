@@ -1,8 +1,5 @@
 use crate::users::{Administrator, Customer, User};
-use std::{
-    ops::{Add, Div, Mul, Sub},
-    process::Output,
-};
+use std::ops::{Add, Div, Mul, Sub};
 mod users;
 fn main() {
     let numbers = vec![1, 3, 5, 2, 4];
